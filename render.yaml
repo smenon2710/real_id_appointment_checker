@@ -1,0 +1,17 @@
+services:
+  - type: worker
+    name: real-id-checker
+    env: python
+    plan: free
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y wget unzip curl chromium-browser chromium-chromedriver
+      pip install -r requirements.txt
+    startCommand: python real_id_checker.py
+    envVars:
+      - key: EMAIL_SENDER
+        value: smenon2710@gmail.com
+      - key: EMAIL_RECEIVER
+        value: smenon2710@gmail.com
+      - key: EMAIL_PASSWORD
+        value: yhuj hiur bqfn rtcq
