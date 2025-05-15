@@ -99,6 +99,6 @@ schedule.every(15).minutes.do(check_location_pages)
 
 if __name__ == "__main__":
     check_location_pages()
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
