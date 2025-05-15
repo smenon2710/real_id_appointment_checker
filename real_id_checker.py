@@ -8,18 +8,17 @@ import time
 import schedule
 import re
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
+CHROMEDRIVER_PATH = "/Users/sujithkumarmenon/Documents/AGS_Purdue/real_id_appointment_checker/chromedriver"
+# CHROMEDRIVER_PATH = "/usr/bin/chromedriver"
 
-
-# === CONFIG ===
-# EMAIL_RECEIVER = "smenon2710@gmail.com"
-# EMAIL_SENDER = "smenon2710@gmail.com"
-# EMAIL_PASSWORD = "yhuj hiur bqfn rtcq"  # Use your Gmail App Password
-# CHROMEDRIVER_PATH = "/Users/sujithkumarmenon/Documents/AGS_Purdue/real_id_appointment_checker/chromedriver"
 
 URLS = [
     "https://telegov.njportal.com/njmvc/AppointmentWizard/12",
@@ -47,7 +46,7 @@ def check_location_pages():
     print(f"[🕒] Current time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     chrome_options = Options()
-    chrome_options.binary_location = "/usr/bin/chromium-browser"
+    # chrome_options.binary_location = "/usr/bin/chromium-browser"
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -99,6 +98,6 @@ schedule.every(15).minutes.do(check_location_pages)
 
 if __name__ == "__main__":
     check_location_pages()
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

@@ -1,0 +1,19 @@
+# Python virtual environments
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+
+# System files
+.DS_Store
+
+# VS Code settings (optional)
+.vscode/
+
+.env
+chromedriver
